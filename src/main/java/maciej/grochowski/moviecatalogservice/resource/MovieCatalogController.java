@@ -3,6 +3,7 @@ package maciej.grochowski.moviecatalogservice.resource;
 import maciej.grochowski.moviecatalogservice.model.CatalogItem;
 import maciej.grochowski.moviecatalogservice.model.Movie;
 import maciej.grochowski.moviecatalogservice.model.Rating;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,10 +18,11 @@ import java.util.stream.Collectors;
 @RequestMapping("/catalog")
 public class MovieCatalogController {
 
+    @Autowired
+    private RestTemplate restTemplate;
+
     @GetMapping("/{userId}")
     public List<CatalogItem> getCatalogOfUser(@PathVariable String userId) {
-
-        RestTemplate restTemplate = new RestTemplate();
 
         // movies watched by specific user
         // response that should come from the real API, hard-coding for now
