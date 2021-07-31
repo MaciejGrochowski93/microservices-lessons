@@ -4,11 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Movie {
+public class UserRating {
 
-    public String movieId;
-    public String movieName;
+    private List<Rating> ratingList;
 }
