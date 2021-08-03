@@ -2,7 +2,6 @@ package maciej.grochowski.moviecatalogservice.resource;
 
 import maciej.grochowski.moviecatalogservice.model.CatalogItem;
 import maciej.grochowski.moviecatalogservice.model.Movie;
-import maciej.grochowski.moviecatalogservice.model.Rating;
 import maciej.grochowski.moviecatalogservice.model.UserRating;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,9 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.reactive.function.client.WebClient;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,9 +19,6 @@ public class MovieCatalogController {
 
     @Autowired
     private RestTemplate restTemplate;
-
-    @Autowired
-    private WebClient.Builder webClientBuilder;
 
     @GetMapping("/{userId}")
     public List<CatalogItem> getCatalogOfUser(@PathVariable String userId) {
@@ -53,6 +47,11 @@ public class MovieCatalogController {
 //        );
 
 // RestTemplate contains 2 parameters: the link it refers to, and the class of object which is supposed to be recreated
+
+
+// FOR ASYNCHRONOUS
+//    @Autowired
+//    private WebClient.Builder webClientBuilder;
 
 
 //        asynchronous
